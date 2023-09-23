@@ -1,0 +1,59 @@
+#page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+}
+
+#todoHeader {
+  background-color: rgb(94, 94, 206);
+  border-radius: 25px;
+  border: 3px solid black;
+  margin-bottom: 1rem;
+  padding: 8px;
+}
+
+#todoHeader > * {
+  color: white;
+}
+
+#todoBody {
+  background-color: lightgrey;
+  border-radius: 25px;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  width: 100%;
+}
+
+.itemButton {
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+}
+
+.itemButton:hover {
+  background-color: wheat;
+  border-radius: 25px;
+}
+
+.submit {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.todoList {
+  /* border: solid 3px; */
+  padding: 6rem;
+}
+
+li {
+  list-style-type: circle;
+  font: georgia;
+}
+
+body {
+    background-color: rgb(105, 108, 110) !important;
+}

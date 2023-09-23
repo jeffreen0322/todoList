@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>My Website</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <body>
+    <section id="page">
+      <div class="left"></div>
+      <div class="todoList">
+        <section id="todoHeader">
+          <h1><%= date %></h1>
+        </section>
+        <section id="todoBody">
+          <% if (locals.todoItems) { %>
+            <% console.log("current list: " + todoItems); %>
+            <% for (let i = 0; i < todoItems.length; ++i) { %>
+              <form method="POST" action="/crossout" class="crossout">
+                <input type="hidden" name="todoEntry" value="<%= todoItems[i] %>">
+                <button class="itemButton" type="submit">
+                  <li class="listItem">
+                    <% if (todoItems[i].includes("<s tag-html>")) { %>
+                      <s><%= todoItems[i].substring(12) %></s>
+                    <% } else { %>
+                        <%= todoItems[i] %>
+                    <% } %>
+                  </li>
+                </button>
+            </form>
+            <% } %>
+          <% } %>
+        </section>
+        <section id="todoItem">
+          <form action="/submit" method="POST">
+            <div class="form-group">  
+              <input type="text" class="form-control" id="todoBar" name="todoAddBar" aria-describedby="todoHelp" placeholder="<%= placeholderText %>">
+            </div>
+              <button type="submit" class="btn btn-primary submit">Submit</button>
+          </form>
+          <form action="/" method="POST">
+            <div class="form-group">
+              <button class="btn btn-primary clear">Clear</button>
+            </div>
+          </form>
+        </section>
+      </div>
+      <div class="right"></div>
+    </section>
+  </body>
+</html>
